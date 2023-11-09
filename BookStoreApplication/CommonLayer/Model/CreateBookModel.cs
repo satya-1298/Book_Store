@@ -16,7 +16,5 @@ namespace CommonLayer.Model
         public int? PageNo { get; set; }
         public string Images { get; set; }
 
-    }
-
-   
+    }  
 }
