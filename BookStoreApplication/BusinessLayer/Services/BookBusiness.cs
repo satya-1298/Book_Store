@@ -1,7 +1,7 @@
 ﻿using BusinessLayer.Interface;
 using CommonLayer.Model;
 using RepoLayer.Interface;
-using RepoLayer.Model;
+using RepoLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,5 +1,5 @@
 ﻿using CommonLayer.Model;
-using RepoLayer.Model;
+using RepoLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
