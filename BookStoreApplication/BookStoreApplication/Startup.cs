@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RepoLayer.Interface;
-using RepoLayer.Model;
+using RepoLayer.Models;
 using RepoLayer.Services;
 using System;
 using System.Collections.Generic;
@@ -39,11 +39,19 @@ namespace BookStoreApplication
 
             services.AddControllers();
 
+            //User Configuration
             services.AddTransient<IUserBusiness, UserBusiness>();
             services.AddTransient<IUserRepo, RepoUser>();
 
+            //Book Configuration
             services.AddTransient<IBookBusiness, BookBusiness>();
             services.AddTransient<IBookRepo, BookRepo>();
+
+            //AddressConfiguration
+            services.AddScoped<IAddressBusiness, AddressBusiness>();
+            services.AddScoped<IAddressRepo, AddressRepo>();    
+
+
             // SWAGGER SERVICES IMPLEMENTATION:-
             services.AddSwaggerGen(c =>
             {

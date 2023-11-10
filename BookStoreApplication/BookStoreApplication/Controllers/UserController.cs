@@ -3,7 +3,7 @@ using CommonLayer.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RepoLayer.Model;
+using RepoLayer.Models;
 using System.Linq;
 using System.Security.Claims;
 
@@ -53,7 +53,7 @@ namespace BookStoreApplication.Controllers
         public IActionResult AdminReg(UserRegister register)
         {
             int result = int.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserId").Value);
-            if(result==3)
+            if(result==1)
             {
                 string role = "Admin";
                 var val=userBusiness.UserReg(register, role);
