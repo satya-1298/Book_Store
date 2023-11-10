@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RepoLayer.Interface;
-using RepoLayer.Model;
+using RepoLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +25,7 @@ namespace RepoLayer.Services
             {
                 Books books = new Books();
                 books.Title = createBookModel.Title;
+                books.Description = createBookModel.Description;
                 books.Author = createBookModel.Author;
                 books.Isbn = createBookModel.Isbn;
                 books.Price = createBookModel.Price;

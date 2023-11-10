@@ -1,33 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RepoLayer.Model
+namespace RepoLayer.Models
 {
     public partial class Users
     {
         public Users()
         {
             Address = new HashSet<Address>();
+            OrderDetails = new HashSet<OrderDetails>();
             OrdersSummary = new HashSet<OrdersSummary>();
         }
 
-        [Key]
-        [Column("UserID")]
         public int UserId { get; set; }
-        [StringLength(255)]
         public string Username { get; set; }
-        [StringLength(255)]
-        public string Password { get; set; }
-        [StringLength(255)]
+        public string PhoneNo { get; set; }
         public string Email { get; set; }
-        [StringLength(50)]
+        public string Password { get; set; }
         public string Role { get; set; }
 
-        [InverseProperty("User")]
         public virtual ICollection<Address> Address { get; set; }
-        [InverseProperty("User")]
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
         public virtual ICollection<OrdersSummary> OrdersSummary { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using RepoLayer.Interface;
-using RepoLayer.Model;
+using RepoLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,6 +17,7 @@ namespace RepoLayer.Services
     {
         private readonly BookStoreDBContext _dbContext;
         private readonly IConfiguration configuration;
+        private readonly Books books;
         public RepoUser(BookStoreDBContext bookStoreDB ,IConfiguration configuration)
         {
            this. _dbContext = bookStoreDB; 
@@ -60,7 +61,8 @@ namespace RepoLayer.Services
                 {
                     new Claim("UserId", UserId.ToString()),
                     new Claim(ClaimTypes.Email, Email),
-                    new Claim(ClaimTypes.Role,Role)
+                    new Claim(ClaimTypes.Role,Role),
+                    new Claim("BookId", books.BookId.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(130),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(secret), SecurityAlgorithms.HmacSha256Signature)
