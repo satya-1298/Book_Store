@@ -51,7 +51,9 @@ namespace BookStoreApplication
             services.AddScoped<IAddressBusiness, AddressBusiness>();
             services.AddScoped<IAddressRepo, AddressRepo>();    
 
-
+            //OrderDetails Configuration
+            services.AddScoped<IOrderDetailRepo, OrderDetailRepo>();    
+            services.AddScoped<IOrderDetailsBusiness,OrderDetailsBusiness>();
             // SWAGGER SERVICES IMPLEMENTATION:-
             services.AddSwaggerGen(c =>
             {

@@ -9,6 +9,7 @@ namespace BookStoreApplication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class BooksController : ControllerBase
     {
         private readonly IBookBusiness bookBusiness;
@@ -16,6 +17,11 @@ namespace BookStoreApplication.Controllers
         {
             this.bookBusiness = book;
         }
+        /// <summary>
+        /// Creating books we didn't authorize because it will be accessed by authorized and unauthorized users
+        /// </summary>
+        /// <param name="createBook"></param>
+        /// <returns>val</returns>
         [HttpPost]
         [Route("Create_Book")]
         public IActionResult BookCreation(CreateBookModel createBook)
