@@ -15,7 +15,7 @@ namespace RepoLayer.Models
         public string Description { get; set; }
         public string Author { get; set; }
         public string Isbn { get; set; }
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         public int? QuantityInStock { get; set; }
         public int? PageNo { get; set; }
         public string Images { get; set; }
